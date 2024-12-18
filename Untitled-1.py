@@ -189,6 +189,56 @@ def Game():
             else:
                 self.canvas.itemconfig(self.item,
                                     fill=Brick.BLOCKS[self.hits])
+    
+    class Game(tk.Frame):
+        def __init__(self, master):
+            super(Game, self).__init__(master)
+            self.lives = 3
+            self.score = 0
+            self.width = 700
+            self.height = 500
+            self.canvas = tk.Canvas(self, bg='#000000',
+                                    width=self.width,
+                                    height=self.height,)
+            self.canvas.pack()
+            self.pack()
+
+            self.items = {}
+            self.ball = None
+            self.Board = Board(self.canvas, self.width/2, 426)
+            self.items[self.Board.item] = self.Board
+            # making random bricks
+            for x in range(15, self.width - 50, 75):
+                self.add_brick(x + 37.5, 50,  randint(1, 3))
+                self.add_brick(x + 37.5, 70, randint(1, 3))
+                self.add_brick(x + 37.5, 90, randint(1, 3))
+
+            self.lives_text = None
+            self.score_text = None
+            self.setup_game()
+            self.canvas.focus_set()
+            self.canvas.bind('<Left>',
+                            lambda _: self.Board.move(-15))
+            self.canvas.bind('<Right>',
+                            lambda _: self.Board.move(15))
+            self.update_score_text()
+
+        def setup_game(self):
+            self.add_ball()
+            self.update_lives_text()
+            self.text = self.draw_text(350, 250,
+                                    'Press \'Space\' to Start Game', 25)
+            self.canvas.bind('<space>', lambda _: self.start_game())
+
+        def add_ball(self):
+            if self.ball is not None:
+                self.ball.destroy()
+            Board_coords = self.Board.get_coordinates()
+            x = (Board_coords[0] + Board_coords[2]) * 0.5
+            self.ball = Ball(self.canvas, x, 310)
+            self.Board.set_ball(self.ball)
+
+
 
     window1.mainloop()
 
