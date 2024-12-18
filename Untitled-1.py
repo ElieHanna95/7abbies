@@ -238,8 +238,64 @@ def Game():
             self.ball = Ball(self.canvas, x, 310)
             self.Board.set_ball(self.ball)
 
+        def add_brick(self, x, y, hits):
+            brick = Brick(self.canvas, x, y, hits)
+            self.items[brick.item] = brick
+
+        def draw_text(self, x, y, text, size='40', color='white'):
+            font = ('Helvetica', size)
+            return self.canvas.create_text(x, y, text=text,
+                                        font=font, fill=color)
+
+        def update_lives_text(self):
+            text = '❤ x % s' % self.lives
+            if self.lives_text is None:
+                self.lives_text = self.draw_text(665, 20, text, 16)
+            else:
+                self.canvas.itemconfig(self.lives_text, text=text)
+
+        def update_score_text(self):
+            scr = 'Score: % s' % self.score
+            if self.score_text is None:
+                self.score_text = self.draw_text(58, 20, scr, 16)
+            else:
+                self.canvas.itemconfig(self.score_text, text=scr)
+
+        def start_game(self):
+            self.canvas.unbind('<space>')
+            self.canvas.delete(self.text)
+            self.Board.ball = None
+            self.game_loop()
+
+        def game_loop(self):
+            self.check_collisions()
+            self.update_score_text()
+            num_bricks = len(self.canvas.find_withtag('brick'))
+            if num_bricks == 0:
+                self.ball.speed = None
+                self.draw_text(350, 250, 'Winner :)', color='green')
+            elif self.ball.get_coordinates()[3] >= self.height:
+                self.ball.speed = None
+                self.lives -= 1
+                if self.lives < 0:
+                    self.draw_text(350, 250, 'Looser :(', color='red')
+                else:
+                    self.after(1000, self.setup_game)
+            else:
+                self.ball.update()
+                self.after(50, self.game_loop)
+
+        def check_collisions(self):
+            ball_coords = self.ball.get_coordinates()
+            items = self.canvas.find_overlapping(*ball_coords)
+            objects = [self.items[x] for x in items if x in self.items]
+            if self.ball.collide(objects):
+                self.score += 10
 
 
+    if __name__ == '__main__':
+        game = Game(window1)
+        game.mainloop()
     window1.mainloop()
 
 
