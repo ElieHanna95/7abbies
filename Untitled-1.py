@@ -17,13 +17,15 @@ def main():
 def Game():
     window.withdraw()
     window1=Tk()
-    window1.title('ping bomb')
+    window1.title('Ping BOMB')
+    window1.title('Ping BOMB')
+    window1.geometry('700x650')
     title = Label(window1, text="Game", bg="grey", font=("bold", 30))
     title.pack()
     btn = Button(window1, text='Quit', width=7,height=2, bd='10', command=window1.destroy)
-    btn.place(x=295, y=525)
+    btn.place(x=270, y=590)
     btn1 = Button(window1, text='Go back', width=7,height=2, bd='10', command=lambda:[window1.withdraw(),window.deiconify()])
-    btn1.place(x=220, y=525)
+    btn1.place(x=350, y=590)
 
     class Object():
         def __init__(self, canvas, item):
