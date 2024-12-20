@@ -303,22 +303,147 @@ def Game():
 
 
 def xoxo():
-    """xoxo with a twist, game ends when hit draw"""
     window.withdraw()
-    global n, player1_name, player2_name, player1_score, player2_score, l 
+    global franklin, window2, n, player1_name, player2_name, player1_score, player2_score, n, l 
     n=1
+    window.withdraw()
+    window2 = Tk()
     player1_score = 0
     player2_score = 0
     player1_name = "Player 1"
     player2_name = "Player 2"
-    window2 = Tk()
     window2.title('XOXO')
     window2.geometry('600x600')
     window2.config(bg='#d8ccbe')
+    canvas = Canvas(window2, width=600, height=350) 
+    canvas.grid(row=0, columnspan=6, pady=20)
+    franklin = turtle.RawTurtle(canvas)
     btn = Button(window2, text='Leave', width=7,height=2, bd='10', command=window2.destroy)
     btn.place(x=305, y=530)
     btn1 = Button(window2, text='Go Back', width=7,height=2, bd='10', command=lambda:[window2.withdraw(), window.deiconify()])
     btn1.place(x=230, y=530)
+   
+    scoreboard = Label(window2, text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}", font=("Arial", 16), bg="#d8ccbe", fg="black")
+    scoreboard.place(x=195, y=390)
+    
+    player1 = Label(window2, text = "X :").place(x = 20,y = 575)
+    player2 = Label(window2, text = "O :").place(x = 420,y = 575)
+    e1 = Entry(window2)
+    e1.place(x=70, y=575)
+    e2 = Entry(window2)
+    e2.place(x=470, y=575)
+    l = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    
+    
+    def full_reset():
+        global window2, player1_name, player2_name, player1_score, player2_score, n, l, cane
+
+        if window2:
+            window2.destroy()
+        xoxo()
+    
+    
+    def add_full_reset_button():
+        full_reset_button = Button(window2, text="Full Reset", width=9, height=1, command=full_reset, font=("Arial", 9), bg="red", fg="white")
+        full_reset_button.place(x=268, y=478)  # Adjust placement as needed
+    add_full_reset_button()
+
+    def set_names():
+        global player1_name, player2_name
+        player1_name = e1.get() if e1.get() else "Player 1"
+        player2_name = e2.get() if e2.get() else "Player 2"
+        print(f"{player1_name} and {player2_name} set.")
+
+    Button(window2, text="Set Names",width=9,height=1, command=set_names).place(x=268, y=505)
+
+    def drawgrid():
+        
+        franklin.penup()
+        franklin.goto(0,0)
+        franklin.pendown()
+        franklin.pensize(10)
+        franklin.penup()
+        franklin.goto(-150,-55)
+        franklin.pendown()
+        franklin.forward(300)
+        franklin.penup()
+        franklin.goto(-150,55)
+        franklin.pendown()
+        franklin.forward(300)
+        franklin.penup()
+        franklin.goto(-50,150)
+        franklin.right(90)
+        franklin.pendown()
+        franklin.forward(300)
+        franklin.penup()
+        franklin.goto(50,150)
+        franklin.pendown()
+        franklin.forward(300)
+    drawgrid()
+    
+    def winning_logo1():
+        winner_label = Label(window2,text=f"{player1_name} WON THE GAME!", font=("Arial", 20),fg="green",bg="grey")
+        winner_label.place(x=150, y=20)
+    
+    def winning_logo2():
+        winner_label = Label(window2,text=f"{player2_name} WON THE GAME!", font=("Arial", 20),fg="green",bg="grey")
+        winner_label.place(x=150, y=20)
+
+
+    def drawx():
+        global n
+        franklin.pencolor("red")
+        franklin.shape('turtle')
+        franklin.pendown()
+        for i in range(2):
+            franklin.left(45)
+            franklin.forward(30)
+            franklin.backward(60)
+            franklin.forward(30)
+            franklin.left(45)
+        franklin.setheading(-90)
+        n=n+1
+ 
+    def drawo():
+        global n
+        franklin.pencolor('blue')
+        franklin.shape('turtle')       
+        franklin.pendown()
+        franklin.circle(25)
+        franklin.setheading(-90)
+        n=n+1
+    
+    def check_game_status():
+        """Check the game status after each move."""
+        global l, player1_name, player2_name, player1_score, player2_score
+        if (
+            l[0] == l[1] == l[2] == 1 or
+            l[0] == l[3] == l[6] == 1 or
+            l[0] == l[4] == l[8] == 1 or
+            l[1] == l[4] == l[7] == 1 or
+            l[2] == l[5] == l[8] == 1 or
+            l[2] == l[4] == l[6] == 1 or
+            l[3] == l[4] == l[5] == 1 or
+            l[6] == l[7] == l[8] == 1 or
+            l[0] == l[1] == l[2] == 2 or
+            l[0] == l[3] == l[6] == 2 or
+            l[0] == l[4] == l[8] == 2 or
+            l[1] == l[4] == l[7] == 2 or
+            l[2] == l[5] == l[8] == 2 or
+            l[2] == l[4] == l[6] == 2 or
+            l[3] == l[4] == l[5] == 2 or
+            l[6] == l[7] == l[8] == 2
+            ):
+        
+            return
+
+        elif all(cell != 0 for cell in l):
+            draw_label = Label(window2, text="It's a Draw!", font=("Arial", 20), fg="Pink", bg="grey")
+            draw_label.place(x=220, y=20)
+            print("Draw!")
+            continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
+            continue_button.place(x=250, y=450)
+
 
     window2.mainloop()
 
