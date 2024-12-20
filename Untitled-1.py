@@ -685,6 +685,102 @@ def xoxo():
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
             continue_button.place(x=250, y=450)
             l = [0] * 9
+    def x1():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
+        franklin.penup()
+        franklin.goto(-100, 100)
+        drawx()
+        l[0]=1
+        caneplace()
+        if n>=5:
+            win1()
+            win3()
+            win4()         
+    def x2():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
+        franklin.penup()
+        franklin.goto(0, 100)
+        drawx()
+        l[1]=1
+        caneplace()
+        if n>=5:
+            win1()
+            win2()        
+    def x3():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
+        franklin.penup()
+        franklin.goto(100, 100)
+        drawx()
+        l[2]=1
+        caneplace()
+        if n>=5:
+            win1()   
+            win5()
+            win6()    
+    def x4():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
+        franklin.penup()
+        franklin.goto(-100, 0)
+        drawx()
+        l[3]=1
+        caneplace()
+        if n>=5:
+            win7()    
+            win3()
+    def x5():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l  
+        franklin.penup()
+        franklin.goto(0, 0)
+        drawx()
+        l[4]=1
+        caneplace()
+        if n>=5:
+            win7()
+            win2()
+            win4()
+            win6()              
+    def x6():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
+        franklin.penup()
+        franklin.goto(100, 0)
+        drawx()
+        l[5]=1
+        caneplace()
+        if n>=5:
+            win7()           
+            win5()
+    def x7():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
+        franklin.penup()
+        franklin.goto(-100, -100)
+        drawx()
+        l[6]=1
+        caneplace()
+        if n>=5:
+            win8()    
+            win3()  
+            win6()
+    def x8():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
+        franklin.penup()
+        franklin.goto(0, -100)
+        drawx()
+        l[7]=1
+        caneplace()
+        if n>=5:
+            win8()            
+            win2()
+    def x9():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
+        franklin.penup()
+        franklin.goto(100, -100)
+        drawx()
+        l[8]=1
+        caneplace()
+        if n>=5:
+            win8()    
+            win5()
+            win4()
           
 
 
@@ -702,13 +798,13 @@ brick = Button(window, text='Brick Breaker', width=9,height=4, bd='5', command=G
 brick.place(x=100, y=152)
 ph1= Canvas(window, width=115, height=115,bd=0.5, highlightthickness=0.5, bg='#d8ccbe')
 ph1.place(x=80, y=230)
-photo1 = PhotoImage(file ="C:\\Users\\Karim\\Documents\\GitHub\\7abbies\\brick.png")
+photo1 = PhotoImage(file ="C:\\Users\\ElieH\\Documents\\GitHub\\7abbies\\brick.png")
 item = ph1.create_image (60,60, image =photo1)
 
 but = Button(window, text='TIc-Tac-Toe', width=9,height=2, bd='5', command=xoxo)
 but.place(x=415, y=156)
 ph2= Canvas(window, width=110, height=115,bd=0, highlightthickness=0, bg='#d8ccbe')
 ph2.place(x=395, y=230)
-photo2 = PhotoImage(file ="C:\\Users\\Karim\\Documents\\GitHub\\7abbies\\1-0d91dba3.png")
+photo2 = PhotoImage(file ="C:\\Users\\ElieH\\Documents\\GitHub\\7abbies\\1-0d91dba3.png")
 item = ph2.create_image (60,60, image =photo2)
 window.mainloop()
