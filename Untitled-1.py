@@ -7,16 +7,16 @@ from random import randint
 pygame.mixer.init()
 is_muted = False
 def play_sound():
-    pygame.mixer.music.load("C:\\Users\\ElieH\\Desktop\\python\\Smooth%20Criminal%20-%20Michael%20Jackson%27s%20Moonwalker%20%28Arcade%29%20Soundtrack.mp3")  # Load the audio file
+    pygame.mixer.music.load("soundtrack.mp3")  
     pygame.mixer.music.play(-1)
 
 def toggle_mute():
     global is_muted
     if is_muted:
-        pygame.mixer.music.set_volume(1.0)  # Restore volume to full
+        pygame.mixer.music.set_volume(1.0)  
         mute_button.config(text="Mute")
     else:
-        pygame.mixer.music.set_volume(0.0)  # Set volume to zero
+        pygame.mixer.music.set_volume(0.0)  
         mute_button.config(text="Unmute")
     is_muted = not is_muted
 
@@ -55,7 +55,7 @@ def Game():
         def move(self, x, y):
             self.canvas.move(self.item, x, y)
 
-        def destroy(self):  # delete_component
+        def destroy(self):  
             self.canvas.delete(self.item)
 
 
@@ -63,10 +63,10 @@ def Game():
         def __init__(self, canvas, x, y):
             self.radius = 6
             self.direction = [1, -1]
-            self.speed = 12 # add a but in game so we can cbricke the speed depending on the players pref
+            self.speed = 12 
             item = canvas.create_oval(x-self.radius, y-self.radius,
                                     x+self.radius, y+self.radius,
-                                    fill='Pink') #cbricke the color of the ball
+                                    fill='Pink') 
             super(Ball, self).__init__(canvas, item)
 
         def collide(self, game_objects): 
@@ -362,7 +362,7 @@ def xoxo():
     
     def add_full_reset_button():
         full_reset_button = Button(window2, text="Full Reset", width=9, height=1, command=full_reset, font=("Arial", 9), bg="red", fg="white")
-        full_reset_button.place(x=268, y=478)  # Adjust placement as needed
+        full_reset_button.place(x=268, y=478) 
     add_full_reset_button()
 
     def set_names():
@@ -971,15 +971,15 @@ sound = Button(window, text='Play Sound', width=9,height=2, bd='5', command=lamb
 sound.place(x=268, y=477)
 mute_button = Button(window,text="Mute", command=toggle_mute)
 mute_button.place(x=550, y=10)
-#ph1= Canvas(window, width=115, height=115,bd=0.5, highlightthickness=0.5, bg='#d8ccbe')
-#ph1.place(x=80, y=230)
-#photo1 = PhotoImage(file ="C:\\Users\\ElieH\\Documents\\GitHub\\7abbies\\brick.png")
-#item = ph1.create_image (60,60, image =photo1)
+ph1= Canvas(window, width=115, height=115,bd=0.5, highlightthickness=0.5, bg='#d8ccbe')
+ph1.place(x=80, y=230)
+photo1 = PhotoImage(file ="brick.png")
+item = ph1.create_image (60,60, image =photo1)
 
 but = Button(window, text='TIc-Tac-Toe', width=9,height=2, bd='5', command=xoxo)
 but.place(x=415, y=156)
-#ph2= Canvas(window, width=110, height=115,bd=0, highlightthickness=0, bg='#d8ccbe')
-#ph2.place(x=395, y=230)
-#photo2 = PhotoImage(file ="C:\\Users\\ElieH\\Documents\\GitHub\\7abbies\\1-0d91dba3.png")
-#item = ph2.create_image (60,60, image =photo2)
+ph2= Canvas(window, width=110, height=115,bd=0, highlightthickness=0, bg='#d8ccbe')
+ph2.place(x=395, y=230)
+photo2 = PhotoImage(file ="xoxo.png")
+item = ph2.create_image (60,60, image =photo2)
 window.mainloop()
