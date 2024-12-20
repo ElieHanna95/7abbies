@@ -169,9 +169,9 @@ def Game():
 
 
     class Brick(Object):
-        BLOCKS = {1: '#F3D653', 2: '#1377BA', 3: '#606060'}
+        BLOCKS = {1: '#ffff00', 2: '#ff5c33', 3: '#0000ff'}
 
-        def __init__(self, canvas, x, y, hits):
+        def __init__(self, canvas, x, y, hits): 
             self.width = 75
             self.height = 20
             self.hits = hits
@@ -416,6 +416,7 @@ def xoxo():
     def check_game_status():
         """Check the game status after each move."""
         global l, player1_name, player2_name, player1_score, player2_score
+    
         if (
             l[0] == l[1] == l[2] == 1 or
             l[0] == l[3] == l[6] == 1 or
@@ -459,13 +460,13 @@ brick = Button(window, text='Brick Breaker', width=9,height=4, bd='5', command=G
 brick.place(x=100, y=152)
 ph1= Canvas(window, width=115, height=115,bd=0.5, highlightthickness=0.5, bg='#d8ccbe')
 ph1.place(x=80, y=230)
-photo1 = PhotoImage(file ="C:\\Users\\ElieH\\Documents\\GitHub\\7abbies\\brick.png")
+photo1 = PhotoImage(file ="C:\\Users\\Karim\\Documents\\GitHub\\7abbies\\brick.png")
 item = ph1.create_image (60,60, image =photo1)
 
 but = Button(window, text='TIc-Tac-Toe', width=9,height=2, bd='5', command=xoxo)
 but.place(x=415, y=156)
 ph2= Canvas(window, width=110, height=115,bd=0, highlightthickness=0, bg='#d8ccbe')
 ph2.place(x=395, y=230)
-photo2 = PhotoImage(file ="C:\\Users\\ElieH\\Documents\\GitHub\\7abbies\\1-0d91dba3.png")
+photo2 = PhotoImage(file ="C:\\Users\\Karim\\Documents\\GitHub\\7abbies\\1-0d91dba3.png")
 item = ph2.create_image (60,60, image =photo2)
 window.mainloop()
