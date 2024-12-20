@@ -445,6 +445,248 @@ def xoxo():
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
             continue_button.place(x=250, y=450)
 
+    def win1(): 
+        global player1_score, player2_score, player1_name, player1_score, franklin, continue_button, l, n
+        if l[0]==l[1]==l[2]==1:
+            player1_score += 1  
+            scoreboard.config(text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}")
+            franklin.pencolor('black')
+            franklin.pensize(5)
+            franklin.penup()
+            franklin.goto(-150,100)
+            franklin.left(90)
+            franklin.pendown()
+            franklin.forward(300)
+            winning_logo1()
+            continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
+            continue_button.place(x=250, y=450)
+            l = [0] * 9
+        elif l[0]==l[1]==l[2]==2:
+            player2_score += 1  
+            scoreboard.config(text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}")
+            franklin.pencolor('black')
+            franklin.pensize(5)
+            franklin.penup()
+            franklin.goto(-150,100)
+            franklin.left(90)
+            franklin.pendown()
+            franklin.forward(300)
+            winning_logo2()
+            continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
+            continue_button.place(x=250, y=450)
+            l = [0] * 9
+    def win2(): 
+        global player1_score, player2_score, player1_name, player1_score, franklin, continue_button, l, n
+        if l[1]== l[4]==l[7]==1:
+            player1_score += 1  
+            scoreboard.config(text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}")
+            franklin.pencolor('black')
+            franklin.pensize(5)
+            franklin.penup()
+            franklin.goto(0,150)
+            franklin.pendown()
+            franklin.forward(300)
+            winning_logo1()
+            continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
+            continue_button.place(x=250, y=450)
+            l = [0] * 9
+        elif l[1]== l[4]==l[7]==2:
+            player2_score += 1  
+            scoreboard.config(text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}")
+            franklin.pencolor('black')
+            franklin.pensize(5)
+            franklin.penup()
+            franklin.goto(0,150)
+            franklin.pendown()
+            franklin.forward(300)
+            winning_logo2()
+            continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
+            continue_button.place(x=250, y=450)
+            l = [0] * 9
+    def win3(): 
+        global player1_score, player2_score, player1_name, player1_score, franklin, continue_button, l, n
+        if l[0]== l[3]==l[6]==1:
+            player1_score += 1  
+            scoreboard.config(text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}")
+            franklin.pencolor('black')
+            franklin.pensize(5)
+            franklin.penup()
+            franklin.goto(-100,150)
+            franklin.pendown()
+            franklin.forward(300)
+            winning_logo1()
+            continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
+            continue_button.place(x=250, y=450)
+            l = [0] * 9
+
+        elif l[0]== l[3]==l[6]==2:
+            player2_score += 1 
+            scoreboard.config(text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}")
+            franklin.pencolor('black')
+            franklin.pensize(5)
+            franklin.penup()
+            franklin.goto(-100,150)
+            franklin.pendown()
+            franklin.forward(300)
+            winning_logo2()
+            continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
+            continue_button.place(x=250, y=450)
+            l = [0] * 9
+    def win4(): 
+        global player1_score, player2_score, player1_name, player1_score, franklin, continue_button, l, n
+        if l[0]== l[4]==l[8]==1:
+            player1_score += 1 
+            scoreboard.config(text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}")
+            franklin.pencolor('black')
+            franklin.pensize(5)
+            franklin.penup()
+            franklin.goto(-150,150)
+            franklin.left(45)
+            franklin.pendown()
+            franklin.forward(425)
+            winning_logo1()
+            continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
+            continue_button.place(x=250, y=450)
+            l = [0] * 9
+
+        elif l[0]== l[4]==l[8]==2:
+            player2_score += 1  
+            scoreboard.config(text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}")
+            franklin.pencolor('black')
+            franklin.pensize(5)
+            franklin.penup()
+            franklin.goto(-150,150)
+            franklin.left(45)
+            franklin.pendown()
+            franklin.forward(425)
+            winning_logo2()
+            continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
+            continue_button.place(x=250, y=450)
+            l = [0] * 9
+    def win5(): 
+        global player1_score, player2_score, player1_name, player1_score, franklin, continue_button, l, n
+        if l[2]== l[5]==l[8]==1:
+            player1_score += 1  
+            scoreboard.config(text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}")
+            franklin.pencolor('black')
+            franklin.pensize(5)
+            franklin.penup()
+            franklin.goto(100,150)
+            franklin.pendown()
+            franklin.forward(300)
+            winning_logo1()
+            continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
+            continue_button.place(x=250, y=450)
+            l = [0] * 9
+
+        elif l[2]== l[5]==l[8]==2:
+            player2_score += 1 
+            scoreboard.config(text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}")
+            franklin.pencolor('black')
+            franklin.pensize(5)
+            franklin.penup()
+            franklin.goto(100,150)
+            franklin.pendown()
+            franklin.forward(300)
+            winning_logo2()
+            continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
+            continue_button.place(x=250, y=450)
+            l = [0] * 9
+    def win6(): 
+        global player1_score, player2_score, player1_name, player1_score, franklin, continue_button, l, n
+        if l[2]== l[4]==l[6]==1:
+            player1_score += 1  
+            scoreboard.config(text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}")
+            franklin.pencolor('black')
+            franklin.pensize(5)
+            franklin.penup()
+            franklin.goto(150,150)
+            franklin.right(45)
+            franklin.pendown()
+            franklin.forward(425)
+            winning_logo1()
+            continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
+            continue_button.place(x=250, y=450)
+            l = [0] * 9
+
+        elif l[2]== l[4]==l[6]==2:
+            player2_score += 1  
+            scoreboard.config(text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}")
+            franklin.pencolor('black')
+            franklin.pensize(5)
+            franklin.penup()
+            franklin.goto(150,150)
+            franklin.right(45)
+            franklin.pendown()
+            franklin.forward(425)
+            winning_logo2()
+            continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
+            continue_button.place(x=250, y=450)
+            l = [0] * 9
+    def win7(): 
+        global player1_score, player2_score, player1_name, player1_score, franklin, continue_button, l, n
+        if l[3]== l[4]==l[5]==1:
+            player1_score += 1  
+            scoreboard.config(text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}")
+            franklin.pencolor('black')
+            franklin.pensize(5)
+            franklin.penup()
+            franklin.goto(-150,0)
+            franklin.left(90)
+            franklin.pendown()
+            franklin.forward(300)
+            winning_logo1()
+            continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
+            continue_button.place(x=250, y=450)
+            l = [0] * 9
+
+        elif l[3]== l[4]==l[5]==2:
+            player2_score += 1  
+            scoreboard.config(text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}")
+            franklin.pencolor('black')
+            franklin.pensize(5)
+            franklin.penup()
+            franklin.goto(-150,0)
+            franklin.left(90)
+            franklin.pendown()
+            franklin.forward(300)
+            winning_logo2()
+            continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
+            continue_button.place(x=250, y=450)
+            l = [0] * 9
+    def win8(): 
+        global player1_score, player2_score, player1_name, player1_score, franklin, continue_button, l, n
+        if l[6]== l[7]==l[8]==1:
+            player1_score += 1  
+            scoreboard.config(text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}")
+            franklin.pencolor('black')
+            franklin.pensize(5)
+            franklin.penup()
+            franklin.goto(-150,-100)
+            franklin.left(90)
+            franklin.pendown()
+            franklin.forward(300)
+            winning_logo1()
+            continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
+            continue_button.place(x=250, y=450)
+            l = [0] * 9
+
+        elif l[6]== l[7]==l[8]==2:
+            player2_score += 1  
+            scoreboard.config(text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}")
+            franklin.pencolor('black')
+            franklin.pensize(5)
+            franklin.penup()
+            franklin.goto(-150,-100)
+            franklin.left(90)
+            franklin.pendown()
+            franklin.forward(300)
+            winning_logo2()
+            continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
+            continue_button.place(x=250, y=450)
+            l = [0] * 9
+          
+
 
     window2.mainloop()
 
