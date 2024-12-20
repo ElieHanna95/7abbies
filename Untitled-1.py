@@ -881,6 +881,60 @@ def xoxo():
             win5()
             win4()
 
+    def setupbuttons():
+        butx1 = Button(window2, text='x', width=6,height=3, bd='2',  command=lambda:[x1(),butx1.destroy(),buto1.destroy(), check_game_status()])
+        butx1.place(x=30, y=400)
+        butx2 = Button(window2, text='x', width=6,height=3, bd='2', command=lambda:[x2(),butx2.destroy(),buto2.destroy(), check_game_status()])
+        butx2.place(x=80, y=400)
+        butx3 = Button(window2, text='x', width=6,height=3, bd='2', command=lambda:[x3(),butx3.destroy(),buto3.destroy(), check_game_status()])
+        butx3.place(x=128, y=400)
+
+        butx4 = Button(window2, text='x', width=6,height=3, bd='2', command=lambda:[x4(),butx4.destroy(),buto4.destroy(), check_game_status()])
+        butx4.place(x=30, y=450)
+        butx5 = Button(window2, text='x', width=6,height=3, bd='2', command=lambda:[x5(),butx5.destroy(),buto5.destroy(), check_game_status()])
+        butx5.place(x=80, y=450)
+        butx6 = Button(window2, text='x', width=6,height=3, bd='2', command=lambda:[x6(),butx6.destroy(),buto6.destroy(), check_game_status()])
+        butx6.place(x=128, y=450)
+
+        butx7 = Button(window2, text='x', width=6,height=3, bd='2', command=lambda:[x7(),butx7.destroy(),buto7.destroy(), check_game_status()])
+        butx7.place(x=30, y=500)
+        butx8 = Button(window2, text='x', width=6,height=3, bd='2', command=lambda:[x8(),butx8.destroy(),buto8.destroy(), check_game_status()])
+        butx8.place(x=80, y=500)
+        butx9 = Button(window2, text='x', width=6,height=3, bd='2', command=lambda:[x9(),butx9.destroy(),buto9.destroy(), check_game_status()])
+        butx9.place(x=128, y=500)
+
+        buto1 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o1(), buto1.destroy(),butx1.destroy(), check_game_status()])
+        buto1.place(x=430, y=400)
+        buto2 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o2(), buto2.destroy(),butx2.destroy(), check_game_status()])
+        buto2.place(x=480, y=400)
+        buto3 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o3(), buto3.destroy(),butx3.destroy(), check_game_status()])
+        buto3.place(x=530, y=400)
+
+        buto4 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o4(), buto4.destroy(),butx4.destroy(), check_game_status()])
+        buto4.place(x=430, y=450)
+        buto5 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o5(), buto5.destroy(),butx5.destroy(), check_game_status()])
+        buto5.place(x=480, y=450)
+        buto6 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o6(), buto6.destroy(),butx6.destroy(), check_game_status()])
+        buto6.place(x=530, y=450)
+
+        buto7 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o7(), buto7.destroy(),butx7.destroy(), check_game_status()])
+        buto7.place(x=430, y=500)
+        buto8 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o8(), buto8.destroy(),butx8.destroy(), check_game_status()])
+        buto8.place(x=480, y=500)
+        buto9 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o9(), buto9.destroy(),butx9.destroy(), check_game_status()])
+        buto9.place(x=530, y=500)
+
+    setupbuttons()
+    
+    def caneplace():
+        global n
+        if n%2==0:
+            cane.place(x=30, y=400)
+        else:
+            cane.place(x=430, y=400)
+
+    cane= Canvas(window2, width=150, height=160, bg='#d8ccbe', highlightthickness=5, highlightbackground='#d8ccbe', highlightcolor='#d8ccbe')
+    caneplace()
           
 
 
@@ -896,15 +950,15 @@ btn = Button(window, text='Leave', width=7,height=2, bd='10', command=window.des
 btn.place(x=270, y=525)
 brick = Button(window, text='Brick Breaker', width=9,height=4, bd='5', command=Game)
 brick.place(x=100, y=152)
-ph1= Canvas(window, width=115, height=115,bd=0.5, highlightthickness=0.5, bg='#d8ccbe')
-ph1.place(x=80, y=230)
-photo1 = PhotoImage(file ="C:\\Users\\ElieH\\Documents\\GitHub\\7abbies\\brick.png")
-item = ph1.create_image (60,60, image =photo1)
+#ph1= Canvas(window, width=115, height=115,bd=0.5, highlightthickness=0.5, bg='#d8ccbe')
+#ph1.place(x=80, y=230)
+#photo1 = PhotoImage(file ="C:\\Users\\ElieH\\Documents\\GitHub\\7abbies\\brick.png")
+#item = ph1.create_image (60,60, image =photo1)
 
 but = Button(window, text='TIc-Tac-Toe', width=9,height=2, bd='5', command=xoxo)
 but.place(x=415, y=156)
-ph2= Canvas(window, width=110, height=115,bd=0, highlightthickness=0, bg='#d8ccbe')
-ph2.place(x=395, y=230)
-photo2 = PhotoImage(file ="C:\\Users\\ElieH\\Documents\\GitHub\\7abbies\\1-0d91dba3.png")
-item = ph2.create_image (60,60, image =photo2)
+#ph2= Canvas(window, width=110, height=115,bd=0, highlightthickness=0, bg='#d8ccbe')
+#ph2.place(x=395, y=230)
+#photo2 = PhotoImage(file ="C:\\Users\\ElieH\\Documents\\GitHub\\7abbies\\1-0d91dba3.png")
+#item = ph2.create_image (60,60, image =photo2)
 window.mainloop()
