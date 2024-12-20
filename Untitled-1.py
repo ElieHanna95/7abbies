@@ -781,6 +781,106 @@ def xoxo():
             win8()    
             win5()
             win4()
+                              
+    def o1():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
+        franklin.penup()
+        franklin.goto(-120,100)
+        drawo()
+        caneplace()
+        l[0]=2
+        
+        if n>=5:
+            win1()
+            win3()
+            win4()
+    def o2():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
+        franklin.penup()
+        franklin.goto(-20,100)
+        drawo()
+        caneplace()
+        l[1]=2
+        if n>=5:
+            win1()
+            win2()
+    def o3():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
+        franklin.penup()
+        franklin.goto(80,100)
+        drawo()
+        caneplace()
+        l[2]=2
+        if n>=5:
+            win1()
+            win5()
+            win6()
+    def o4():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
+        franklin.penup()
+        franklin.goto(-120,0)
+        drawo()
+        caneplace()
+        l[3]=2
+        if n>=5:
+            win7()
+            win3()
+    def o5():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
+        franklin.penup()
+        franklin.goto(-20,0)
+        drawo()
+        caneplace()
+        l[4]=2
+        if n>=5:
+            win7()
+            win5()
+            win4()
+            win6()
+    def o6():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
+        franklin.penup()
+        franklin.goto(80,0)
+        drawo()
+        caneplace()
+        l[5]=2
+
+        if n>=5:
+            win7()
+            win5()
+    def o7():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
+        franklin.penup()
+        franklin.goto(-120,-100)
+        drawo()
+        caneplace()
+        l[6]=2
+        if n>=5:
+            win8()
+            win3()
+            win6()
+    def o8():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
+        franklin.penup()
+        franklin.goto(-20,-100)
+        drawo()
+        caneplace()
+        l[7]=2
+        if n>=5:
+            win8()
+            win2()
+    def o9():
+        global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
+        franklin.penup()
+        franklin.goto(80,-100)
+        drawo()
+        caneplace()
+        l[8]=2
+        if n>=5:
+            win8()
+            win5()
+            win4()
+
           
 
 
