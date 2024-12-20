@@ -4,6 +4,23 @@ import pygame
 import tkinter as tk
 from random import randint
 
+pygame.mixer.init()
+is_muted = False
+def play_sound():
+    pygame.mixer.music.load("C:\\Users\\ElieH\\Desktop\\python\\Smooth%20Criminal%20-%20Michael%20Jackson%27s%20Moonwalker%20%28Arcade%29%20Soundtrack.mp3")  # Load the audio file
+    pygame.mixer.music.play(-1)
+
+def toggle_mute():
+    global is_muted
+    if is_muted:
+        pygame.mixer.music.set_volume(1.0)  # Restore volume to full
+        mute_button.config(text="Mute")
+    else:
+        pygame.mixer.music.set_volume(0.0)  # Set volume to zero
+        mute_button.config(text="Unmute")
+    is_muted = not is_muted
+
+
 def main():
  
 
@@ -443,7 +460,7 @@ def xoxo():
             draw_label.place(x=220, y=20)
             print("Draw!")
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
-            continue_button.place(x=250, y=450)
+            continue_button.place(x=268, y=450)
 
     def win1(): 
         global player1_score, player2_score, player1_name, player1_score, franklin, continue_button, l, n
@@ -459,7 +476,7 @@ def xoxo():
             franklin.forward(300)
             winning_logo1()
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
-            continue_button.place(x=250, y=450)
+            continue_button.place(x=268, y=450)
             l = [0] * 9
         elif l[0]==l[1]==l[2]==2:
             player2_score += 1  
@@ -473,7 +490,7 @@ def xoxo():
             franklin.forward(300)
             winning_logo2()
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
-            continue_button.place(x=250, y=450)
+            continue_button.place(x=268, y=450)
             l = [0] * 9
     def win2(): 
         global player1_score, player2_score, player1_name, player1_score, franklin, continue_button, l, n
@@ -488,7 +505,7 @@ def xoxo():
             franklin.forward(300)
             winning_logo1()
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
-            continue_button.place(x=250, y=450)
+            continue_button.place(x=268, y=450)
             l = [0] * 9
         elif l[1]== l[4]==l[7]==2:
             player2_score += 1  
@@ -501,7 +518,7 @@ def xoxo():
             franklin.forward(300)
             winning_logo2()
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
-            continue_button.place(x=250, y=450)
+            continue_button.place(x=268, y=450)
             l = [0] * 9
     def win3(): 
         global player1_score, player2_score, player1_name, player1_score, franklin, continue_button, l, n
@@ -516,7 +533,7 @@ def xoxo():
             franklin.forward(300)
             winning_logo1()
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
-            continue_button.place(x=250, y=450)
+            continue_button.place(x=268, y=450)
             l = [0] * 9
 
         elif l[0]== l[3]==l[6]==2:
@@ -530,7 +547,7 @@ def xoxo():
             franklin.forward(300)
             winning_logo2()
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
-            continue_button.place(x=250, y=450)
+            continue_button.place(x=268, y=450)
             l = [0] * 9
     def win4(): 
         global player1_score, player2_score, player1_name, player1_score, franklin, continue_button, l, n
@@ -546,7 +563,7 @@ def xoxo():
             franklin.forward(425)
             winning_logo1()
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
-            continue_button.place(x=250, y=450)
+            continue_button.place(x=268, y=450)
             l = [0] * 9
 
         elif l[0]== l[4]==l[8]==2:
@@ -561,7 +578,7 @@ def xoxo():
             franklin.forward(425)
             winning_logo2()
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
-            continue_button.place(x=250, y=450)
+            continue_button.place(x=268, y=450)
             l = [0] * 9
     def win5(): 
         global player1_score, player2_score, player1_name, player1_score, franklin, continue_button, l, n
@@ -576,7 +593,7 @@ def xoxo():
             franklin.forward(300)
             winning_logo1()
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
-            continue_button.place(x=250, y=450)
+            continue_button.place(x=268, y=450)
             l = [0] * 9
 
         elif l[2]== l[5]==l[8]==2:
@@ -590,7 +607,7 @@ def xoxo():
             franklin.forward(300)
             winning_logo2()
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
-            continue_button.place(x=250, y=450)
+            continue_button.place(x=268, y=450)
             l = [0] * 9
     def win6(): 
         global player1_score, player2_score, player1_name, player1_score, franklin, continue_button, l, n
@@ -606,7 +623,7 @@ def xoxo():
             franklin.forward(425)
             winning_logo1()
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
-            continue_button.place(x=250, y=450)
+            continue_button.place(x=268, y=450)
             l = [0] * 9
 
         elif l[2]== l[4]==l[6]==2:
@@ -621,7 +638,7 @@ def xoxo():
             franklin.forward(425)
             winning_logo2()
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
-            continue_button.place(x=250, y=450)
+            continue_button.place(x=268, y=450)
             l = [0] * 9
     def win7(): 
         global player1_score, player2_score, player1_name, player1_score, franklin, continue_button, l, n
@@ -637,7 +654,7 @@ def xoxo():
             franklin.forward(300)
             winning_logo1()
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
-            continue_button.place(x=250, y=450)
+            continue_button.place(x=268, y=450)
             l = [0] * 9
 
         elif l[3]== l[4]==l[5]==2:
@@ -652,7 +669,7 @@ def xoxo():
             franklin.forward(300)
             winning_logo2()
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
-            continue_button.place(x=250, y=450)
+            continue_button.place(x=268, y=450)
             l = [0] * 9
     def win8(): 
         global player1_score, player2_score, player1_name, player1_score, franklin, continue_button, l, n
@@ -668,7 +685,7 @@ def xoxo():
             franklin.forward(300)
             winning_logo1()
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
-            continue_button.place(x=250, y=450)
+            continue_button.place(x=268, y=450)
             l = [0] * 9
 
         elif l[6]== l[7]==l[8]==2:
@@ -683,7 +700,7 @@ def xoxo():
             franklin.forward(300)
             winning_logo2()
             continue_button = Button(window2, text="Continue Game",width=12,height=1, command=reset_game, font=("Arial", 9))
-            continue_button.place(x=250, y=450)
+            continue_button.place(x=268, y=450)
             l = [0] * 9
     def x1():
         global window2, n, player1_name, player2_name, player1_score, player2_score, continue_button, l
@@ -950,6 +967,10 @@ btn = Button(window, text='Leave', width=7,height=2, bd='10', command=window.des
 btn.place(x=270, y=525)
 brick = Button(window, text='Brick Breaker', width=9,height=4, bd='5', command=Game)
 brick.place(x=100, y=152)
+sound = Button(window, text='Play Sound', width=9,height=2, bd='5', command=lambda:[sound.destroy(),play_sound()])
+sound.place(x=268, y=477)
+mute_button = Button(window,text="Mute", command=toggle_mute)
+mute_button.place(x=550, y=10)
 #ph1= Canvas(window, width=115, height=115,bd=0.5, highlightthickness=0.5, bg='#d8ccbe')
 #ph1.place(x=80, y=230)
 #photo1 = PhotoImage(file ="C:\\Users\\ElieH\\Documents\\GitHub\\7abbies\\brick.png")
