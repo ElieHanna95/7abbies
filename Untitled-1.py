@@ -374,7 +374,6 @@ def xoxo():
     Button(window2, text="Set Names",width=9,height=1, command=set_names).place(x=268, y=505)
 
     def drawgrid():
-        
         franklin.penup()
         franklin.goto(0,0)
         franklin.pendown()
@@ -952,8 +951,8 @@ def xoxo():
 
     cane= Canvas(window2, width=150, height=160, bg='#d8ccbe', highlightthickness=5, highlightbackground='#d8ccbe', highlightcolor='#d8ccbe')
     caneplace()
-          
-def reset_game():
+            
+    def reset_game():
         global franklin, l, cane, continue_button
         l = [0] * 9
         l = [0, 0, 0, 0, 0, 0, 0, 0, 0]  
@@ -1029,7 +1028,7 @@ def reset_game():
             cane.destroy()  
             cane = Canvas(window2, width=150, height=160, bg='#d8ccbe', highlightthickness=5, highlightbackground='#d8ccbe')
             cane.place(x=30, y=400)
-        window2.mainloop()
+    window2.mainloop()
 
 
 window=Tk()
