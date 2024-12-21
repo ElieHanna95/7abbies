@@ -430,6 +430,13 @@ def xoxo():
         franklin.setheading(-90)
         n=n+1
     
+        def destroy_buttons():
+            """Destroy all X and O buttons."""
+            for widget in window2.winfo_children():
+                if isinstance(widget, Button):
+                    if widget.cget("text").lower() in ["x", "o"]:
+                        widget.destroy()
+
     def check_game_status():
         """Check the game status after each move."""
         global l, player1_name, player2_name, player1_score, player2_score
