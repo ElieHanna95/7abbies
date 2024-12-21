@@ -953,85 +953,9 @@ def xoxo():
     cane= Canvas(window2, width=150, height=160, bg='#d8ccbe', highlightthickness=5, highlightbackground='#d8ccbe', highlightcolor='#d8ccbe')
     caneplace()
           
-def reset_game():
-        global franklin, l, cane, continue_button
-        l = [0] * 9
-        l = [0, 0, 0, 0, 0, 0, 0, 0, 0]  
-        franklin.clear()
-        franklin.penup()
-        franklin.goto(0, 0) 
-        franklin.setheading(0)
-        franklin.pencolor('black')
-        if continue_button:
-            continue_button.destroy()
-            continue_button = None
-        for widget in window2.winfo_children():
-            if isinstance(widget, Label):
-                if "WON THE GAME" in widget.cget("text") or "It's a Draw!" in widget.cget("text"):
-                    widget.destroy()
-        drawgrid()
-        
-        butx1 = Button(window2, text='x', width=6,height=3, bd='2',  command=lambda:[x1(),butx1.destroy(),buto1.destroy(), move_cane(), check_game_status()])
-        butx1.place(x=30, y=400)
-        
-        butx2 = Button(window2, text='x', width=6,height=3, bd='2', command=lambda:[x2(),butx2.destroy(),buto2.destroy(), move_cane(), check_game_status()])
-        butx2.place(x=80, y=400)
-        butx3 = Button(window2, text='x', width=6,height=3, bd='2', command=lambda:[x3(),butx3.destroy(),buto3.destroy(), move_cane(), check_game_status()])
-        butx3.place(x=128, y=400)
 
-        butx4 = Button(window2, text='x', width=6,height=3, bd='2', command=lambda:[x4(),butx4.destroy(),buto4.destroy(), move_cane(), check_game_status()])
-        butx4.place(x=30, y=450)
-        butx5 = Button(window2, text='x', width=6,height=3, bd='2', command=lambda:[x5(),butx5.destroy(),buto5.destroy(), move_cane(), check_game_status()])
-        butx5.place(x=80, y=450)
-        butx6 = Button(window2, text='x', width=6,height=3, bd='2', command=lambda:[x6(),butx6.destroy(),buto6.destroy(), move_cane(), check_game_status()])
-        butx6.place(x=128, y=450)
 
-        butx7 = Button(window2, text='x', width=6,height=3, bd='2', command=lambda:[x7(),butx7.destroy(),buto7.destroy(), move_cane(), check_game_status()])
-        butx7.place(x=30, y=500)
-        butx8 = Button(window2, text='x', width=6,height=3, bd='2', command=lambda:[x8(),butx8.destroy(),buto8.destroy(), move_cane(), check_game_status()])
-        butx8.place(x=80, y=500)
-        butx9 = Button(window2, text='x', width=6,height=3, bd='2', command=lambda:[x9(),butx9.destroy(),buto9.destroy(), move_cane(), check_game_status()])
-        butx9.place(x=128, y=500)
-
-        buto1 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o1(), buto1.destroy(),butx1.destroy(), increment_turn(), check_game_status()])
-        buto1.place(x=430, y=400)
-        buto2 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o2(), buto2.destroy(),butx2.destroy(), increment_turn(), check_game_status()])
-        buto2.place(x=480, y=400)
-        buto3 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o3(), buto3.destroy(),butx3.destroy(), increment_turn(), check_game_status()])
-        buto3.place(x=530, y=400)
-
-        buto4 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o4(), buto4.destroy(),butx4.destroy(), increment_turn(), check_game_status()])
-        buto4.place(x=430, y=450)
-        buto5 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o5(), buto5.destroy(),butx5.destroy(), increment_turn(), check_game_status()])
-        buto5.place(x=480, y=450)
-        buto6 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o6(), buto6.destroy(),butx6.destroy(), increment_turn(), check_game_status()])
-        buto6.place(x=530, y=450)
-
-        buto7 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o7(), buto7.destroy(),butx7.destroy(), increment_turn(), check_game_status()])
-        buto7.place(x=430, y=500)
-        buto8 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o8(), buto8.destroy(),butx8.destroy(), increment_turn(), check_game_status()])
-        buto8.place(x=480, y=500)
-        buto9 = Button(window2, text='o', width=6,height=3, bd='2', command= lambda:[o9(), buto9.destroy(),butx9.destroy(), increment_turn(), check_game_status()])
-        buto9.place(x=530, y=500)
-
-        cane = Canvas(window2, width=150, height=160, bg='#d8ccbe', highlightthickness=5, highlightbackground='#d8ccbe', highlightcolor='#d8ccbe')
-        cane.place(x=430, y=400)
-        n = 1  # Turn counter
-
-        def increment_turn():
-            global n , cane
-            cane.destroy() 
-            cane = Canvas(window2, width=150, height=160, bg='#d8ccbe', highlightthickness=5, highlightbackground='#d8ccbe')
-            cane.place(x=430, y=400)
-        
-        def move_cane():
-            global cane
-            cane.destroy()  
-            cane = Canvas(window2, width=150, height=160, bg='#d8ccbe', highlightthickness=5, highlightbackground='#d8ccbe')
-            cane.place(x=30, y=400)
-
-        window2.mainloop()
-
+    window2.mainloop()
 
 
 window=Tk()
