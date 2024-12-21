@@ -958,7 +958,7 @@ def xoxo():
 
     cane= Canvas(window2, width=150, height=160, bg='#d8ccbe', highlightthickness=5, highlightbackground='#d8ccbe', highlightcolor='#d8ccbe')
     caneplace()
-            
+                
     def reset_game():
         global franklin, l, cane, continue_button
         l = [0] * 9
@@ -976,6 +976,7 @@ def xoxo():
                 if "WON THE GAME" in widget.cget("text") or "It's a Draw!" in widget.cget("text"):
                     widget.destroy()
         drawgrid()
+        destroy_buttons()
         
         butx1 = Button(window2, text='x', width=6,height=3, bd='2',  command=lambda:[x1(),butx1.destroy(),buto1.destroy(), move_cane(), check_game_status()])
         butx1.place(x=30, y=400)
