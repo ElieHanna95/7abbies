@@ -292,12 +292,12 @@ def Game():
             num_bricks = len(self.canvas.find_withtag('brick'))
             if num_bricks == 0:
                 self.ball.speed = None
-                self.draw_text(350, 250, 'Winner :)', color='green')
+                self.draw_text(350, 250, 'You Won', color='green')
             elif self.ball.get_coordinates()[3] >= self.height:
                 self.ball.speed = None
                 self.lives -= 1
                 if self.lives < 0:
-                    self.draw_text(350, 250, 'Looser :(', color='red')
+                    self.draw_text(350, 250, 'You lost, Game over.', color='red')
                 else:
                     self.after(1000, self.setup_game)
             else:
