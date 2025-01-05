@@ -26,7 +26,7 @@ def main():
 
     brick = Button(window, text='Brick Breaker', width=9,height=4, bd='5', command=Game)
     brick.place(x=100, y=152)
-    but = Button(window, text='xoxo', width=9,height=4, bd='5', command= lambda: [window.withdraw(), xoxo()])
+    but = Button(window, text='xoxo', width=9,height=4, bd='5', command= xoxo)
     but.place(x=415, y=152)
     
     window.mainloop()
@@ -126,7 +126,7 @@ def Game():
 
 
     class Brick(Object):
-        BLOCKS = {1: '#F3D653', 2: '#1377BA', 3: '#606060'}
+        BLOCKS = {1: '#ffff00', 2: '#ff5c33', 3: '#0000ff'}
 
         def __init__(self, canvas, x, y, hits):
             self.width = 75
@@ -147,67 +147,7 @@ def Game():
                 self.destroy()
             else:
                 self.canvas.itemconfig(self.item,
-                                    fill=Brick.BLOCKS[self.hits])
-
-    def update(self):
-            coords = self.get_coordinates()
-            width = self.canvas.winfo_width()
-            if coords[0] <= 0 or coords[2] >= width:
-                self.direction[0] *= -1
-            if coords[1] <= 0:
-                self.direction[1] *= -1
-            x = self.direction[0] * self.speed
-            y = self.direction[1] * self.speed
-            self.move(x, y)
-
-
-    class Board(Object):
-        def __init__(self, canvas, x, y):
-            self.width = 150
-            self.height = 10
-            self.ball = None
-            board = canvas.create_rectangle(x - self.width / 2,
-                                            y - self.height / 2,
-                                            x + self.width / 2,
-                                            y + self.height / 2,
-                                            fill='#FF6F00')
-            super(Board, self).__init__(canvas, board)
-
-        def move(self, offset):
-            coords = self.get_coordinates()
-            width = self.canvas.winfo_width()
-            if coords[0] + offset >= 0 and coords[2] + offset <= width:
-                super(Board, self).move(offset, 0)
-                if self.ball is not None:
-                    self.ball.move(offset, 0)
-
-        def set_ball(self, ball):
-            self.ball = ball
-
-
-    class Brick(Object):
-        BLOCKS = {1: '#ffff00', 2: '#ff5c33', 3: '#0000ff'}
-
-        def __init__(self, canvas, x, y, hits): 
-            self.width = 75
-            self.height = 20
-            self.hits = hits
-            color = Brick.BLOCKS[hits]
-            item = canvas.create_rectangle(x - self.width / 2,
-                                        y - self.height / 2,
-                                        x + self.width / 2,
-                                        y + self.height / 2,
-                                        fill=color,
-                                        tags='brick')
-            super(Brick, self).__init__(canvas, item)
-
-        def hit(self):
-            self.hits -= 1
-            if self.hits == 0:
-                self.destroy()
-            else:
-                self.canvas.itemconfig(self.item,
-                                    fill=Brick.BLOCKS[self.hits])
+                                    fill=Brick.BLOCKS[self.hits])    
     
     class Game(tk.Frame):
         def __init__(self, master):
@@ -312,9 +252,9 @@ def Game():
                 self.score += 10
 
 
-    if __name__ == '__main__':
-        game = Game(window1)
-        game.mainloop()
+    
+    game = Game(window1)
+    game.mainloop()
     window1.mainloop()
 
 
