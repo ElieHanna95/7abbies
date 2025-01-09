@@ -263,7 +263,6 @@ def xoxo():
     window.withdraw()
     global franklin, window2, n, player1_name, player2_name, player1_score, player2_score, n, l 
     n=1
-    window.withdraw()
     window2 = Tk()
     player1_score = 0
     player2_score = 0
@@ -273,13 +272,13 @@ def xoxo():
     window2.geometry('600x600')
     window2.config(bg='#d8ccbe')
     canvas = Canvas(window2, width=600, height=350) 
-    canvas.grid(row=0, columnspan=6, pady=20)
+    canvas.grid()
     franklin = turtle.RawTurtle(canvas)
     btn = Button(window2, text='Leave', width=7,height=2, bd='10', command=window2.destroy)
     btn.place(x=305, y=530)
     btn1 = Button(window2, text='Go Back', width=7,height=2, bd='10', command=lambda:[window2.withdraw(), window.deiconify()])
     btn1.place(x=230, y=530)
-   
+    franklin.shape('turtle')
     scoreboard = Label(window2, text=f"{player1_name}: {player1_score}   {player2_name}: {player2_score}", font=("Arial", 16), bg="#d8ccbe", fg="black")
     scoreboard.place(x=195, y=390)
     
@@ -349,7 +348,6 @@ def xoxo():
     def drawx():
         global n
         franklin.pencolor("red")
-        franklin.shape('turtle')
         franklin.pendown()
         for i in range(2):
             franklin.left(45)
@@ -362,8 +360,7 @@ def xoxo():
  
     def drawo():
         global n
-        franklin.pencolor('blue')
-        franklin.shape('turtle')       
+        franklin.pencolor('blue')   
         franklin.pendown()
         franklin.circle(25)
         franklin.setheading(-90)
